@@ -1,26 +1,17 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using Telegram.Bot;
 using Telegram.Bot.Types;
-using Telegram.Bot.Types.InputFiles;
-using Telegram.Bot.Types.ReplyMarkups;
+using TelegramBot.Classes;
 using TelegramBot.Classes.Helper;
-using File = System.IO.File;
 
 namespace TelegramBot
 {
     public class BotLogic
     {
         private static TelegramBotClient _client;
-        private static CancellationToken _token;
-
-        private const string _recomendationInError = "Советую грязно оскорбить разработчиков в уме";
 
         public static bool IsTokenCorrect(string token)
         {
@@ -46,37 +37,59 @@ namespace TelegramBot
 
         async static private Task Upd(ITelegramBotClient client, Update update, CancellationToken token)
         {
-            //Ужаснейший костыль, но время жестоко
-            _token = token;
-
             var message = update.Message;
             var result = update.CallbackQuery;
             if (message != null)
-                switch (message.Text)
+            {
+                var user = UserHelper.FindUserByID(message.Chat.Id);
+                if (user == null)
                 {
-                    case "/start":
-                        await client.SendTextMessageAsync(message.Chat.Id, "Привет, я нейро-бот твоей мечты. " +
-                            "Я умею синтезировать прекрасные голосовые, так что могу заменить тебе реальных людишек", cancellationToken: token);
-                        break;
-
-                    case "/help":
-                        await client.SendTextMessageAsync(message.Chat.Id, "Напишите /voice " +
-                            "чтобы просмотреть мою прекрасную коллекцию голосов. Или же /sub, чтобы подписаться на уведомления МГОК-а", cancellationToken: token);
-                        break;
-
-                    default:
-                        
-                        break;
+                    if (message.Text == "/start")
+                    {
+                        await client.SendTextMessageAsync(message.Chat.Id, CompanyProfile.SpecialWords["/start"], cancellationToken: token);
+                    }
+                    else
+                    {
+                        var userByCode = UserHelper.FindUserByCode(message.Text);
+                        if (userByCode != null)
+                        {
+                            if (userByCode.ChatID != default)
+                                user.SetChatID(message.Chat.Id);
+                            else
+                                await client.SendTextMessageAsync(message.Chat.Id, "Этим кодом уже воспользовались", cancellationToken: token);
+                        }
+                        else
+                        {
+                            await client.SendTextMessageAsync(message.Chat.Id, "Некорреектный код", cancellationToken: token);
+                        }
+                    }
+                    return;
                 }
+
+                if (user.SelectedVictorine == null)
+                {
+                    var words = CompanyProfile.SpecialWords;
+                    foreach (var word in words.Keys)
+                    {
+                        if (message.Text.ToLower() == word.ToLower())
+                            await client.SendTextMessageAsync(message.Chat.Id, words[word], cancellationToken: token);
+                    }
+                }
+                else
+                {
+                    var res = user.SetAnswer(message.Text);
+                    await client.SendTextMessageAsync(message.Chat.Id, res, cancellationToken: token);
+                }
+            }
             else if (result != null)
             {
-                
+
             }
         }
 
         private static Task Error(ITelegramBotClient arg1, Exception exception, CancellationToken arg3)
         {
-            MessageBox.Show("Произошла ошибка при работе бота. Подробнее:" + exception.Message.ToString());           
+            MessageBox.Show("Произошла ошибка при работе бота. Подробнее:" + exception.Message.ToString());
 
             return null;
         }

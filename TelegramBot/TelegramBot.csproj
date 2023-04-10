@@ -110,7 +110,12 @@
     <Compile Include="Classes\CompanyProfile.cs" />
     <Compile Include="Classes\Helper\FrameNav.cs" />
     <Compile Include="Classes\Helper\JSONSerializeController.cs" />
+    <Compile Include="Classes\Helper\UserHelper.cs" />
+    <Compile Include="Classes\JSON\Employee.cs" />
+    <Compile Include="Classes\JSON\User.cs" />
+    <Compile Include="Classes\JSON\VictorineData.cs" />
     <Compile Include="Classes\TeleBot\BotLogic.cs" />
+    <Compile Include="Classes\Users\Victrorine.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -211,9 +216,7 @@
   <ItemGroup>
     <Resource Include="photo_2023-03-22_19-51-35.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Classes\JSON\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>

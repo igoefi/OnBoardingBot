@@ -25,7 +25,7 @@ namespace TelegramBot.Pages.AdminPanel
                 MessageBox.Show("Uncorrect token");
                 return;
             }
-            CompanyProfile.Token =  token;
+            CompanyProfile.Token = token;
             FrameNav.FrameNavigation.GoBack();
         }
     }
