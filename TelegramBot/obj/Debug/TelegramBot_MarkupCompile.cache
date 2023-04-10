@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\repos\CodeRocks\OnBoardingBot\TelegramBot\obj\Debug\
+L:\TelegramBot\OnBoardingBot\TelegramBot\obj\Debug\
 TelegramBot
 none
 false
 DEBUG;TRACE
-D:\repos\CodeRocks\OnBoardingBot\TelegramBot\App.xaml
-9-1274502350
+L:\TelegramBot\OnBoardingBot\TelegramBot\App.xaml
+121953101991
 
-12-1740031937
-25900489591
-MainWindow.xaml;Pages\AdminPanel\CreateUser.xaml;Pages\AdminPanel\PageBotSettings.xaml;Pages\AdminPanel\PageMainAdminPanel.xaml;Style\ComboBoxStyle.xaml;Style\ReferalCode.xaml;Style\Token.xaml;Style\Password.xaml;Style\LoginBox.xaml;
+15159463594
+25-863079837
+MainWindow.xaml;Pages\AdminPanel\CreateTest.xaml;Pages\AdminPanel\CreateUser.xaml;Pages\AdminPanel\KeyWords.xaml;Pages\AdminPanel\ListEmployee.xaml;Pages\AdminPanel\PageBotSettings.xaml;Pages\AdminPanel\PageMainAdminPanel.xaml;Style\ComboBoxStyle.xaml;Style\ReferalCode.xaml;Style\Token.xaml;Style\Password.xaml;Style\LoginBox.xaml;
 
 False
 

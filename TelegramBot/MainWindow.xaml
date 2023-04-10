@@ -33,13 +33,10 @@
                     Margin="0,0,10,0"
                     BorderThickness="0"
                     Click="BtnClickHide"
-                    Height="15"
-                    Width="15">
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Ellipse Fill="#fdbd3e"/>
-                        </ControlTemplate>
-                    </Button.Template>
+                    Height="20"
+                    Width="20"
+                        Background="Transparent">
+                    <Image Source="\Pages\p.png"/>
                 </Button>
 
                 <Button HorizontalAlignment="Right"
@@ -47,8 +44,8 @@
                     Margin="0,0,15,0"
                     BorderThickness="0"
                     Click="BtnClickExit"
-                    Height="15"
-                    Width="15">
+                    Height="20"
+                    Width="20">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Ellipse Fill="#fc5652"/>
