@@ -11,7 +11,7 @@
         Background="Transparent"
         AllowsTransparency="True">
 
-    <Border Background="#9DC08B"
+    <Border Background="#6D5D6E"
             CornerRadius="25">
     <Grid>
             <Grid.RowDefinitions>
@@ -20,7 +20,7 @@
             </Grid.RowDefinitions>
 
             <Rectangle
-            Fill="#EDF1D6"
+            Fill="#F4EEE0"
             RadiusX="8"
                 RadiusY="8"/>
 

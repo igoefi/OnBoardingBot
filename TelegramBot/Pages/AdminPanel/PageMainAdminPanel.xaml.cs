@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Navigation;
 using TelegramBot.Classes;
 using TelegramBot.Classes.Helper;
 
@@ -31,5 +32,13 @@ namespace TelegramBot.Pages.AdminPanel
 
         private void BtnClickGoSettings(object sender, RoutedEventArgs e) =>
             FrameNav.FrameNavigation.Navigate(new PageBotSettings());
+        private void BtnClickCreateUser(object sender, RoutedEventArgs e) =>
+            FrameNav.FrameNavigation.Navigate(new CreateUser());
+        private void BtnClickKeyWords(object sender, RoutedEventArgs e) =>
+            FrameNav.FrameNavigation.Navigate(new KeyWords());
+        private void BtnClickListEmployee(object sender, RoutedEventArgs e) =>
+            FrameNav.FrameNavigation.Navigate(new ListEmployee());
+        private void BtnClickCreateTest(object sender, RoutedEventArgs e) =>
+            FrameNav.FrameNavigation.Navigate(new CreateTest());
     }
 }

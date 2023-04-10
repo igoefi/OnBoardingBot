@@ -12,21 +12,21 @@
         <StackPanel VerticalAlignment="Center">
             <Button Click="BtnClickLaunchBot"
                     BorderBrush="Transparent"
-                    Width="150"
+                    Width="200"
                     Height="30">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Grid>
                             <Rectangle RadiusX="8"
                                            RadiusY="5"
-                                           Fill="#609966"
+                                           Fill="#4F4557"
                                            >
                             </Rectangle>
                             <TextBlock Text="Запуск бота"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
                                            FontSize="15"
-                                           Foreground="#EDF1D6"/>
+                                           Foreground="#F4EEE0"/>
                         </Grid>
                     </ControlTemplate>
                 </Button.Template>
@@ -34,7 +34,7 @@
 
             <Button Click="BtnClickGoSettings"
                     BorderBrush="Transparent"
-                    Width="150"
+                    Width="200"
                     Height="30"
                     Margin="0,5,0,0">
                 <Button.Template>
@@ -42,19 +42,106 @@
                         <Grid>
                             <Rectangle RadiusX="8"
                                            RadiusY="5"
-                                           Fill="#609966"
+                                           Fill="#4F4557"
                                            >
                             </Rectangle>
                             <TextBlock Text="Токен"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
                                        FontSize="15"
-                                           Foreground="#EDF1D6"/>
+                                           Foreground="#F4EEE0"/>
                         </Grid>
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            
+            <Button Click="BtnClickCreateUser"    
+                    BorderBrush="Transparent"
+                    Width="200"
+                    Height="30"
+                    Margin="0,5,0,0">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Rectangle RadiusX="8"
+                                           RadiusY="5"
+                                           Fill="#4F4557"
+                                           >
+                            </Rectangle>
+                            <TextBlock Text="Создать код сотрудника"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                       FontSize="15"
+                                           Foreground="#F4EEE0"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Click="BtnClickKeyWords"
+                    BorderBrush="Transparent"
+                    Width="200"
+                    Height="30"
+                    Margin="0,5,0,0">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Rectangle RadiusX="8"
+                                           RadiusY="5"
+                                           Fill="#4F4557"
+                                           >
+                            </Rectangle>
+                            <TextBlock Text="Ключевые слова"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                       FontSize="15"
+                                           Foreground="#F4EEE0"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Click="BtnClickListEmployee"
+                    BorderBrush="Transparent"
+                    Width="200"
+                    Height="30"
+                    Margin="0,5,0,0">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Rectangle RadiusX="8"
+                                           RadiusY="5"
+                                           Fill="#4F4557"
+                                           >
+                            </Rectangle>
+                            <TextBlock Text="Список сотрудников"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                       FontSize="15"
+                                           Foreground="#F4EEE0"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Click="BtnClickCreateTest"
+                    BorderBrush="Transparent"
+                    Width="200"
+                    Height="30"
+                    Margin="0,5,0,0">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Rectangle RadiusX="8"
+                                           RadiusY="5"
+                                           Fill="#4F4557"
+                                           >
+                            </Rectangle>
+                            <TextBlock Text="Изменить тесты"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                       FontSize="15"
+                                           Foreground="#F4EEE0"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
         </StackPanel>
     </Grid>
 </Page>
