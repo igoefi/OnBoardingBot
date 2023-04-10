@@ -1,0 +1,17 @@
+﻿<Application x:Class="TelegramBot.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:TelegramBot"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style/LoginBox.xaml"/>
+                <ResourceDictionary Source="Style/Password.xaml"/>
+                <ResourceDictionary Source="Style/ReferalCode.xaml"/>
+                <ResourceDictionary Source="Style/Token.xaml"/>
+                <ResourceDictionary Source="Style/ComboBoxStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
