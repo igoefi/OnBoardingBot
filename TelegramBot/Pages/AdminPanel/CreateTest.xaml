@@ -9,6 +9,147 @@
       Title="CreateTest">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <TextBlock Text="Добавить"
+                        Foreground="#F4EEE0"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Center"
+                       FontSize="30"/>
+
+            <Grid
+                Margin="0,70,50,0">
+                <StackPanel
+                        HorizontalAlignment="Right"
+                    MaxWidth="200">
+                    <TextBlock
+                        TextWrapping="Wrap"
+                        Foreground="#F4EEE0"
+                        FontSize="17">
+                        Название: <Run Name="RnVoiceName"/>
+                    </TextBlock>
+
+                    <TextBlock
+                        TextWrapping="Wrap"
+                        Foreground="#F4EEE0"
+                        FontSize="17"
+                        Margin="0,20,0,0">
+                        Озучиваемый язык: <Run Name="RnVoiceCulture"/>
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <Button 
+                BorderBrush="Transparent"
+                Width="100"
+                Height="30"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Left"
+                Margin="10,0,0,20" Grid.Row="1">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Rectangle RadiusX="8"
+                                           RadiusY="5"
+                                           Fill="#4F4557">
+                        </Rectangle>
+                        <TextBlock Text="Добавить"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                           Foreground="#F4EEE0"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Grid Grid.Column="1">
+            <TextBlock Text="Удалить"
+                       Foreground="#F4EEE0"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Center"
+                       FontSize="30"/>
+
+            <Grid
+                Margin="0,70,50,0">
+                <StackPanel
+                        HorizontalAlignment="Right"
+                    MaxWidth="200">
+                    <TextBlock
+                        TextWrapping="Wrap"
+                        Foreground="#F4EEE0"
+                        FontSize="17">
+                        Название: <Run Name="RnSelectedVoiceName"/>
+                    </TextBlock>
+
+                    <TextBlock
+                        TextWrapping="Wrap"
+                        Foreground="#F4EEE0"
+                        FontSize="17"
+                        Margin="0,20,0,0">
+                        Озучиваемый язык: <Run Name="RnSelectedVoiceCulture"/>
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <StackPanel
+                Orientation="Horizontal"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right"            
+                Grid.Row="1"
+                Grid.Column="1">
+            <Button 
+                BorderBrush="Transparent"
+                Width="100"
+                Height="30"
+                Margin="0,0,10,20">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Rectangle RadiusX="8"
+                                           RadiusY="5"
+                                           Fill="#4F4557">
+                            </Rectangle>
+                            <TextBlock Text="Удалить голос"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                           Foreground="#F4EEE0"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button
+                Click="BtnClickBack"
+                BorderBrush="Transparent"
+                Width="100"
+                Height="30"
+                Margin="0,0,10,20">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Rectangle RadiusX="8"
+                                           RadiusY="5"
+                                           Fill="#4F4557">
+                            </Rectangle>
+                            <TextBlock Text="Назад"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                           Foreground="#F4EEE0"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+        </StackPanel>
     </Grid>
 </Page>

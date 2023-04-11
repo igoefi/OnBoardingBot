@@ -28,5 +28,7 @@ namespace TelegramBot.Pages.AdminPanel
             CompanyProfile.Data.Token = token;
             FrameNav.FrameNavigation.GoBack();
         }
+        private void BtnClickBack(object sender, RoutedEventArgs e) =>
+            FrameNav.FrameNavigation.GoBack();
     }
 }

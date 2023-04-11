@@ -35,6 +35,27 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
+            <Button Click="BtnClickBack"
+                    BorderBrush="Transparent"
+                    Width="150"
+                    Height="30"
+                    Margin="0,5,0,0">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Rectangle RadiusX="8"
+                                           RadiusY="5"
+                                           Fill="#4F4557"
+                                           >
+                            </Rectangle>
+                            <TextBlock Text="Назад"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Foreground="#F4EEE0"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
         </StackPanel>
     </Grid>
 </Page>

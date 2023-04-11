@@ -13,22 +13,23 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TelegramBot.Classes.Helper;
+using TelegramBot.Pages.AdminPanel;
 
-namespace TelegramBot.Pages.AdminPanel
+namespace TelegramBot.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для ListEmployee.xaml
+    /// Логика взаимодействия для StartPanel.xaml
     /// </summary>
-    public partial class ListEmployee : Page
+    public partial class StartPanel : Page
     {
-        public ListEmployee()
+        public StartPanel()
         {
             InitializeComponent();
         }
 
-        private void BtnClickBack(object sender, RoutedEventArgs e)
+        private void BtnClickNextPage(object sender, RoutedEventArgs e)
         {
-            FrameNav.FrameNavigation.GoBack();
+            FrameNav.FrameNavigation.Navigate(new PageMainAdminPanel());
         }
     }
 }

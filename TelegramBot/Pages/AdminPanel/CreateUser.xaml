@@ -9,27 +9,63 @@
       Title="CreateUser">
 
     <Grid>
-        <Button     Click="BtnClickBack"
-                    BorderBrush="Transparent"
-                    Width="200"
-                    Height="30"
-                    Margin="0,5,0,0">
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Grid>
-                        <Rectangle RadiusX="8"
-                                           RadiusY="5"
-                                           Fill="#4F4557"
-                                           >
-                        </Rectangle>
-                        <TextBlock Text="Назад"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"
-                                       FontSize="15"
-                                           Foreground="#F4EEE0"/>
-                    </Grid>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
+        <StackPanel
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center">
+            <TextBox
+                Margin="0,5,0,0"
+                Style="{StaticResource Firstname}"/>
+            <TextBox
+                Margin="0,5,0,0"
+                Style="{StaticResource Surname}"/>
+            <ComboBox
+                Margin="0,5,0,0"
+                Style="{StaticResource Line1}"/>
+            <Button     
+                BorderBrush="Transparent"
+                Width="200"
+                Height="30"
+                Margin="0,5,0,0">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Rectangle 
+                                RadiusX="8"
+                                RadiusY="5"
+                                Fill="#4F4557"/>
+                            <TextBlock 
+                                Text="Создать"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="15"
+                                Foreground="#F4EEE0"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button     
+                Click="BtnClickBack"
+                BorderBrush="Transparent"
+                Width="200"
+                Height="30"
+                Margin="0,5,0,0">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Rectangle 
+                                RadiusX="8"
+                                RadiusY="5"
+                                Fill="#4F4557"/>
+                            <TextBlock 
+                                Text="Назад"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="15"
+                                Foreground="#F4EEE0"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>

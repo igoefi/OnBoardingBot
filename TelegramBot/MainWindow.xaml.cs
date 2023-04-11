@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Input;
 using TelegramBot.Classes.Helper;
+using TelegramBot.Pages;
 using TelegramBot.Pages.AdminPanel;
 
 namespace TelegramBot
@@ -14,7 +15,7 @@ namespace TelegramBot
         {
             InitializeComponent();
             FrameNav.FrameNavigation = FrmMain;
-            FrmMain.Navigate(new PageMainAdminPanel());
+            FrmMain.Navigate(new StartPanel());
         }
 
         private void BtnClickExit(object sender, RoutedEventArgs e) =>

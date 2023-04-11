@@ -11,6 +11,8 @@
                 <ResourceDictionary Source="Style/ReferalCode.xaml"/>
                 <ResourceDictionary Source="Style/Token.xaml"/>
                 <ResourceDictionary Source="Style/ComboBoxStyle.xaml"/>
+                <ResourceDictionary Source="Style/StartPanel.xaml"/>
+                <ResourceDictionary Source="Style/CreateUser.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
