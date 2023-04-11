@@ -110,10 +110,10 @@
     </Compile>
     <Compile Include="Classes\CompanyProfile.cs" />
     <Compile Include="Classes\Helper\CompanyData.cs" />
+    <Compile Include="Classes\Helper\CompanyDataController.cs" />
     <Compile Include="Classes\Helper\DataEnum.cs" />
     <Compile Include="Classes\Helper\FrameNav.cs" />
     <Compile Include="Classes\Helper\JSONSerializeController.cs" />
-    <Compile Include="Classes\Helper\UserHelper.cs" />
     <Compile Include="Classes\JSON\Employee.cs" />
     <Compile Include="Classes\JSON\Part.cs" />
     <Compile Include="Classes\JSON\Product.cs" />

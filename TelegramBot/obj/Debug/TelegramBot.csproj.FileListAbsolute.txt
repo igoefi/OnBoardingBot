@@ -208,3 +208,7 @@ D:\repos\CodeRocks\OnBoardingBot\TelegramBot\obj\Debug\Pages\AdminPanel\ListEmpl
 D:\repos\CodeRocks\OnBoardingBot\TelegramBot\obj\Debug\Pages\StartPanel.baml
 D:\repos\CodeRocks\OnBoardingBot\TelegramBot\obj\Debug\Style\StartPanel.baml
 D:\repos\CodeRocks\OnBoardingBot\TelegramBot\obj\Debug\Style\CreateUser.baml
+L:\TelegramBot\OnBoardingBot\TelegramBot\obj\Debug\Style\CreateUser.baml
+L:\TelegramBot\OnBoardingBot\TelegramBot\obj\Debug\Style\StartPanel.baml
+L:\TelegramBot\OnBoardingBot\TelegramBot\obj\Debug\Pages\StartPanel.g.cs
+L:\TelegramBot\OnBoardingBot\TelegramBot\obj\Debug\Pages\StartPanel.baml

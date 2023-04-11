@@ -21,6 +21,10 @@
             <ComboBox
                 Margin="0,5,0,0"
                 Style="{StaticResource Line1}"/>
+            <TextBox
+                Name="TxbCode"
+                Margin="0,5,0,0"
+                Style="{StaticResource Surname}"/>
             <Button     
                 BorderBrush="Transparent"
                 Width="200"
