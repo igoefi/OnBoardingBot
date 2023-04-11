@@ -14,8 +14,8 @@
                                             <ColumnDefinition Width="*" />
                                             <ColumnDefinition Width="14" />
                                         </Grid.ColumnDefinitions>
-                                        <Border x:Name="Border"  Grid.ColumnSpan="2" Background="#40513B" BorderThickness="0" />
-                                        <Border Grid.Column="0"  Margin="1"  Background="#40513B" BorderThickness="0"/>
+                                        <Border x:Name="Border"  Grid.ColumnSpan="2" Background="#393646" BorderThickness="0" />
+                                        <Border Grid.Column="0"  Margin="1"  Background="#393646" BorderThickness="0"/>
                                         <Image Source="/Resources/Arrow1.png"
                                                Grid.Column="1"
                                                HorizontalAlignment="Center"
@@ -29,7 +29,7 @@
                         <TextBox x:Name="PART_EditableTextBox" Visibility="Hidden" IsReadOnly="{TemplateBinding IsReadOnly}"/>
                         <Popup Name="Popup" Placement="Bottom" IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True"  Focusable="False" PopupAnimation="Slide">
                             <Grid  Name="DropDown" SnapsToDevicePixels="True" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
-                                <Border x:Name="DropDownBorder" Background="#609966" />
+                                <Border x:Name="DropDownBorder" Background="#393646" />
                                 <ScrollViewer SnapsToDevicePixels="True">
                                     <StackPanel IsItemsHost="True" />
                                 </ScrollViewer>
