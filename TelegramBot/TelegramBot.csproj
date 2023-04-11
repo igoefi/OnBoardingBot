@@ -108,10 +108,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Classes\CompanyProfile.cs" />
+    <Compile Include="Classes\Helper\CompanyData.cs" />
+    <Compile Include="Classes\Helper\DataEnum.cs" />
     <Compile Include="Classes\Helper\FrameNav.cs" />
     <Compile Include="Classes\Helper\JSONSerializeController.cs" />
     <Compile Include="Classes\Helper\UserHelper.cs" />
     <Compile Include="Classes\JSON\Employee.cs" />
+    <Compile Include="Classes\JSON\Part.cs" />
+    <Compile Include="Classes\JSON\Product.cs" />
     <Compile Include="Classes\JSON\User.cs" />
     <Compile Include="Classes\JSON\VictorineData.cs" />
     <Compile Include="Classes\TeleBot\BotLogic.cs" />
@@ -228,9 +232,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Pages\p.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

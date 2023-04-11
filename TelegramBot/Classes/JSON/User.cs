@@ -24,20 +24,34 @@ namespace TelegramBot.Classes.JSON
             ChatID = default;
             SelectedVictorine = null;
         }
+
+        public string GetActualQuestion()
+        {
+            if (SelectedVictorine == null) return null;
+            
+            return SelectedVictorine.Value.GetActualQuestion();
+        }
+
         public void SetChatID(long chatID) =>
             ChatID = chatID;
+
         public string SetAnswer(string answer)
         {
             if (SelectedVictorine == null)
                 return null;
             SelectedVictorine.Value.AddAnswer(answer);
 
-            var result = SelectedVictorine.Value.GetResultInCredits();
+            int result = SelectedVictorine.Value.GetResultInCredits();
             if (result == -1) return null;
-            var allSum = SelectedVictorine.Value.Data.QuestionCost * SelectedVictorine.Value.Data.QuestionsAnswers.Count;
+            int allSum = SelectedVictorine.Value.Data.QuestionCost * SelectedVictorine.Value.Data.QuestionsAnswers.Count;
             SelectedVictorine = null;
             PlusSocialCredits(result);
             return $"Результат: {result} из {allSum} социальных кредитов";
+        }
+
+        public void SetVictorine(Part part)
+        {
+
         }
 
         private void PlusSocialCredits(int plus) =>

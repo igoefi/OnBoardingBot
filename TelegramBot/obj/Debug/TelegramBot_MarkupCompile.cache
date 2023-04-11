@@ -12,13 +12,9 @@ DEBUG;TRACE
 L:\TelegramBot\OnBoardingBot\TelegramBot\App.xaml
 121953101991
 
-<<<<<<< Updated upstream
-15159463594
-=======
-151153986522
->>>>>>> Stashed changes
+231514151551
 25-863079837
 MainWindow.xaml;Pages\AdminPanel\CreateTest.xaml;Pages\AdminPanel\CreateUser.xaml;Pages\AdminPanel\KeyWords.xaml;Pages\AdminPanel\ListEmployee.xaml;Pages\AdminPanel\PageBotSettings.xaml;Pages\AdminPanel\PageMainAdminPanel.xaml;Style\ComboBoxStyle.xaml;Style\ReferalCode.xaml;Style\Token.xaml;Style\Password.xaml;Style\LoginBox.xaml;
 
-False
+True
 

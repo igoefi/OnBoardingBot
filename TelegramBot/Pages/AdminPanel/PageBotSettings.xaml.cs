@@ -13,19 +13,19 @@ namespace TelegramBot.Pages.AdminPanel
         public PageBotSettings()
         {
             InitializeComponent();
-            TxbToken.Text = CompanyProfile.Token ?? string.Empty;
+            TxbToken.Text = CompanyProfile.Data.Token ?? string.Empty;
         }
 
         private void BtnClickSaveSettings(object sender, RoutedEventArgs e)
         {
-            var textBox = (TextBox)TxbToken.Template.FindName("TB", TxbToken);
-            var token = textBox.Text;
+            TextBox textBox = (TextBox)TxbToken.Template.FindName("TB", TxbToken);
+            string token = textBox.Text;
             if (string.IsNullOrWhiteSpace(token) || !BotLogic.IsTokenCorrect(token))
             {
                 MessageBox.Show("Uncorrect token");
                 return;
             }
-            CompanyProfile.Token = token;
+            CompanyProfile.Data.Token = token;
             FrameNav.FrameNavigation.GoBack();
         }
     }

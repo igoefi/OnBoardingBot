@@ -35,8 +35,8 @@
                     Click="BtnClickHide"
                     Height="20"
                     Width="20"
-                        Background="Transparent">
-                    <Image Source="\Pages\p.png"/>
+                    Background="Transparent">
+                    <Image/>
                 </Button>
 
                 <Button HorizontalAlignment="Right"

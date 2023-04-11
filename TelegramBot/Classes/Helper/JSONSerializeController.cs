@@ -1,19 +1,38 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.IO;
 
 namespace TelegramBot.Classes.Helper
 {
     public class JSONSerializeController
     {
-        static public string SerializeObject(object obj)
+        static public void SerializeObject(object obj, string path)
         {
-            if (obj == null) return null;
-            return JsonConvert.SerializeObject(obj);
+            if (obj == null) return;
+
+            JsonSerializer serializer = new JsonSerializer();
+            serializer.Converters.Add(new JavaScriptDateTimeConverter());
+            serializer.NullValueHandling = NullValueHandling.Ignore;
+
+            using (StreamWriter sw = new StreamWriter(path))
+            using (JsonWriter writer = new JsonTextWriter(sw))
+            {
+                serializer.Serialize(writer, obj);
+            }
         }
 
-        static public T DeserializeObject<T>(string JSON)
+        static public T DeserializeObject<T>(string path)
         {
-            if (string.IsNullOrWhiteSpace(JSON)) return default;
-            return JsonConvert.DeserializeObject<T>(JSON);
+            if (string.IsNullOrWhiteSpace(path)) return default;
+
+            T obj;
+            JsonSerializer serializer = new JsonSerializer();
+            using (StreamReader rd = new StreamReader(path))
+            using (JsonReader reader = new JsonTextReader(rd))
+            {
+                obj = serializer.Deserialize<T>(reader);
+            }
+            return obj;
         }
 
     }

@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Navigation;
 using TelegramBot.Classes;
 using TelegramBot.Classes.Helper;
 
@@ -11,7 +10,7 @@ namespace TelegramBot.Pages.AdminPanel
     /// </summary>
     public partial class PageMainAdminPanel : Page
     {
-        BotLogic _bot;
+        private BotLogic _bot;
         public PageMainAdminPanel()
         {
             InitializeComponent();
@@ -19,7 +18,7 @@ namespace TelegramBot.Pages.AdminPanel
 
         private void BtnClickLaunchBot(object sender, RoutedEventArgs e)
         {
-            string token = CompanyProfile.Token;
+            string token = CompanyProfile.Data.Token;
             if (token == null)
             {
                 MessageBox.Show("Set bot token in settings");

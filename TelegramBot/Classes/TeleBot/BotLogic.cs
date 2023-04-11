@@ -12,6 +12,7 @@ namespace TelegramBot
     public class BotLogic
     {
         private static TelegramBotClient _client;
+        private static CancellationToken _token;
 
         public static bool IsTokenCorrect(string token)
         {
@@ -37,55 +38,84 @@ namespace TelegramBot
 
         async static private Task Upd(ITelegramBotClient client, Update update, CancellationToken token)
         {
-            var message = update.Message;
-            var result = update.CallbackQuery;
+            _token = token;
+
+            Message message = update.Message;
+            CallbackQuery result = update.CallbackQuery;
+
             if (message != null)
             {
-                var user = UserHelper.FindUserByID(message.Chat.Id);
+                Classes.JSON.User user = CompanyDataController.FindUserByID(message.Chat.Id);
                 if (user == null)
                 {
                     if (message.Text == "/start")
                     {
-                        await client.SendTextMessageAsync(message.Chat.Id, CompanyProfile.SpecialWords["/start"], cancellationToken: token);
+                        await client.SendTextMessageAsync(message.Chat.Id, CompanyProfile.Data.SpecialWords["/start"], cancellationToken: token);
                     }
                     else
                     {
-                        var userByCode = UserHelper.FindUserByCode(message.Text);
+                        Classes.JSON.User userByCode = CompanyDataController.FindUserByCode(message.Text);
                         if (userByCode != null)
-                        {
                             if (userByCode.ChatID != default)
                                 user.SetChatID(message.Chat.Id);
                             else
                                 await client.SendTextMessageAsync(message.Chat.Id, "Этим кодом уже воспользовались", cancellationToken: token);
-                        }
                         else
-                        {
                             await client.SendTextMessageAsync(message.Chat.Id, "Некорреектный код", cancellationToken: token);
-                        }
                     }
                     return;
                 }
 
                 if (user.SelectedVictorine == null)
                 {
-                    var words = CompanyProfile.SpecialWords;
-                    foreach (var word in words.Keys)
-                    {
+                    var words = CompanyProfile.Data.SpecialWords;
+                    foreach (string word in words.Keys)
                         if (message.Text.ToLower() == word.ToLower())
                             await client.SendTextMessageAsync(message.Chat.Id, words[word], cancellationToken: token);
-                    }
                 }
                 else
                 {
-                    var res = user.SetAnswer(message.Text);
-                    await client.SendTextMessageAsync(message.Chat.Id, res, cancellationToken: token);
+                    string res = user.SetAnswer(message.Text);
+                    if(res != null)
+                        await client.SendTextMessageAsync(message.Chat.Id, res, cancellationToken: token);
+                    else
+                        await client.SendTextMessageAsync(message.Chat.Id, user.GetActualQuestion(), cancellationToken: token);
                 }
             }
             else if (result != null)
             {
+                Enum.TryParse(result.Data, out DataEnum resultEnum);
+                if (resultEnum == default)
+                    return;
+
+                var user = CompanyDataController.FindUserByID(message.Chat.Id);
+                if (user == null) return;
+
+                switch (resultEnum)
+                {
+                    case DataEnum.StartTest:
+                        var part = CompanyDataController.GetEducationPart(user.Speciality, user.SelectedChapter);
+                        if (part == null) return;
+
+                        user.SetVictorine(part);
+
+                        break;
+
+                    case DataEnum.StartNewChapter:
+                        user.SelectedChapter++;
+
+                        var selectedPart = CompanyDataController.GetEducationPart(user.Speciality, user.SelectedChapter);
+                        if (selectedPart == null) return;
+
+                        await client.SendTextMessageAsync(message.Chat.Id, selectedPart.Theory, cancellationToken: token);
+
+                        break;
+                }
 
             }
         }
+
+
 
         private static Task Error(ITelegramBotClient arg1, Exception exception, CancellationToken arg3)
         {
