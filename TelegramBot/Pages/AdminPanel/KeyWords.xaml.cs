@@ -44,5 +44,10 @@ namespace TelegramBot.Pages.AdminPanel
         {
             
         }
+
+        private void CmbBoxChangedWords(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -34,7 +34,7 @@ namespace TelegramBot.Pages.AdminPanel
         }
         private void BtnClickSave(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(TxbCost.Text) || string.IsNullOrWhiteSpace(TxbName.Text) || string.IsNullOrWhiteSpace(TxbTheory.Text))
+            if (string.IsNullOrWhiteSpace(TxbName.Text) || string.IsNullOrWhiteSpace(TxbName.Text) || string.IsNullOrWhiteSpace(TxbTheory.Text))
             {
                 MessageBox.Show("Одно из полей не заполнено");
                 return;
