@@ -71,7 +71,7 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
                 Click="BtnClickBack"
-                Margin="0,5,0,0"
+                Margin="0,0,0,20"
                 Width="200"
                 Height="30">
             <Button.Template>

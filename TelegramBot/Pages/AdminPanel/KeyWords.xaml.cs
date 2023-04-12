@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using TelegramBot.Classes;
 using TelegramBot.Classes.Helper;
 
 namespace TelegramBot.Pages.AdminPanel
@@ -28,6 +17,32 @@ namespace TelegramBot.Pages.AdminPanel
         private void BtnClickBack(object sender, RoutedEventArgs e)
         {
             FrameNav.FrameNavigation.GoBack();
+        }
+
+        private void BtnClickAdd(object sender, RoutedEventArgs e)
+        {
+            var textBox = (TextBox)TxbKeyPhrase.Template.FindName("TB", TxbKeyPhrase);
+            var key = textBox.Text;
+
+            textBox = (TextBox)TxbAnswer.Template.FindName("TB", TxbAnswer);
+            var answer = textBox.Text;
+
+            if(string.IsNullOrWhiteSpace(key) || string.IsNullOrWhiteSpace(answer))
+            {
+                MessageBox.Show("Одно из полей не заполнено");
+                return;
+            }
+        }
+
+        private void BtnClickDelete(object sender, RoutedEventArgs e)
+        {
+            var selected = (string)CmbBoxWords.SelectedValue;
+            CompanyProfile.Data.SpecialWords.Remove(selected);
+        }
+
+        private void BtnClickChange(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

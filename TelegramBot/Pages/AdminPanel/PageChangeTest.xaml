@@ -14,11 +14,21 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        
+        <ComboBox Name="CmbBoxTest"
+            Style="{StaticResource Line2}"
+                  Grid.Column="1"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Top"
+                  Height="20"
+                  Width="150"
+                  Margin="0,20,0,0"/>
+        
         <StackPanel
             Grid.Column="0"
             HorizontalAlignment="Right"
             VerticalAlignment="Center">
-            <ComboBox
+            <ComboBox Name="CmbBoxSpeciality"
             Style="{StaticResource Line2}"/>
             <TextBox
             Margin="0,5,0,0"

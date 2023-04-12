@@ -11,9 +11,12 @@ namespace TelegramBot.Pages.AdminPanel
     public partial class PageMainAdminPanel : Page
     {
         private BotLogic _bot;
+
+        private readonly TimeSaver _saver;
         public PageMainAdminPanel()
         {
             InitializeComponent();
+            _saver = new TimeSaver();
         }
 
         private void BtnClickLaunchBot(object sender, RoutedEventArgs e)
@@ -27,6 +30,7 @@ namespace TelegramBot.Pages.AdminPanel
             _bot = new BotLogic();
             _bot.StartBot(token);
             MessageBox.Show("Bot started");
+
         }
 
         private void BtnClickGoSettings(object sender, RoutedEventArgs e) =>

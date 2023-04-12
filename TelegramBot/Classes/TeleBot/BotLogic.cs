@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Speech.Synthesis;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -61,7 +60,24 @@ namespace TelegramBot
                         Classes.JSON.User userByCode = CompanyDataController.FindUserByCode(message.Text);
                         if (userByCode != null)
                             if (userByCode.ChatID != default)
+                            {
                                 user.SetChatID(message.Chat.Id);
+
+                                var inlineKeyboard = new InlineKeyboardMarkup(new[]
+                                    {
+                                        new[]
+                                        {
+                                            InlineKeyboardButton.WithCallbackData("О компании", DataEnum.GetCompanyInfo.ToString()),
+                                            InlineKeyboardButton.WithCallbackData("Сотрудники", DataEnum.GetEmployees.ToString())
+                                        },
+                                        new[]
+                                        {
+                                            InlineKeyboardButton.WithCallbackData("Обучение", DataEnum.Education.ToString())
+                                        }
+                                    });
+
+                                await _client.SendTextMessageAsync(message.Chat.Id, "", replyMarkup: inlineKeyboard, cancellationToken: _token);
+                            }
                             else
                                 await client.SendTextMessageAsync(message.Chat.Id, "Этим кодом уже воспользовались", cancellationToken: token);
                         else
@@ -127,12 +143,15 @@ namespace TelegramBot
                             }
                         });
 
-                        await _client.SendTextMessageAsync(message.Chat.Id, "Выберите голос", replyMarkup: inlineKeyboard, cancellationToken: _token);
+                        await _client.SendTextMessageAsync(message.Chat.Id, "", replyMarkup: inlineKeyboard, cancellationToken: _token);
                         break;
 
                     case DataEnum.GetCompanyInfo:
                         await client.SendTextMessageAsync(message.Chat.Id, CompanyDataController.GetCompanyName(), cancellationToken: token);
                         await client.SendTextMessageAsync(message.Chat.Id, CompanyDataController.GetCompanyInfo(), cancellationToken: token);
+
+                        await _client.SendTextMessageAsync(message.Chat.Id, "",
+                            replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("В главное меню", DataEnum.GoToMain.ToString()) }), cancellationToken: _token);
                         break;
 
                     case DataEnum.GetEmployees:
@@ -153,6 +172,9 @@ namespace TelegramBot
                         }
 
                         await client.SendTextMessageAsync(message.Chat.Id, needMessage, cancellationToken: token);
+
+                        await _client.SendTextMessageAsync(message.Chat.Id, "",
+                            replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("В главное меню", DataEnum.GoToMain.ToString()) }), cancellationToken: _token);
                         break;
 
                     case DataEnum.GoToMain:
@@ -169,7 +191,7 @@ namespace TelegramBot
                             }
                         });
 
-                        await _client.SendTextMessageAsync(message.Chat.Id, "Выберите голос", replyMarkup: inlineKeyboard, cancellationToken: _token);
+                        await _client.SendTextMessageAsync(message.Chat.Id, "", replyMarkup: inlineKeyboard, cancellationToken: _token);
                         break;
                 }
 

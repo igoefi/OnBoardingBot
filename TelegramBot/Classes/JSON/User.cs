@@ -1,5 +1,4 @@
-﻿using System;
-using TelegramBot.Classes.Users;
+﻿using TelegramBot.Classes.Users;
 
 namespace TelegramBot.Classes.JSON
 {
@@ -30,7 +29,7 @@ namespace TelegramBot.Classes.JSON
         public string GetActualQuestion()
         {
             if (SelectedVictorine == null) return null;
-            
+
             return SelectedVictorine.Value.GetActualQuestion();
         }
 

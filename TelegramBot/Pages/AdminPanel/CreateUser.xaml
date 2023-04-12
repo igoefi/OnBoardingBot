@@ -12,17 +12,16 @@
         <StackPanel
             VerticalAlignment="Center"
             HorizontalAlignment="Center">
-            <TextBox
+            <TextBox Name="TxbName"
                 Margin="0,5,0,0"
                 Style="{StaticResource Firstname}"/>
-            <TextBox
+            <TextBox Name="TxbSurname"
                 Margin="0,5,0,0"
                 Style="{StaticResource Surname}"/>
-            <ComboBox
+            <ComboBox Name="CmbBoxSpeciality"
                 Margin="0,5,0,0"
                 Style="{StaticResource Line1}"/>
-            <TextBox
-                Name="TxbCode"
+            <TextBox Name="TxbCode"
                 Margin="0,5,0,0"
                 Style="{StaticResource Code}"/>
             <Button     

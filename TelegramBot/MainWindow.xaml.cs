@@ -13,18 +13,17 @@ namespace TelegramBot
     /// </summary>
     public partial class MainWindow : Window
     {
-        private TimeSaver _saver;
+
         public MainWindow()
         {
             InitializeComponent();
             FrameNav.FrameNavigation = FrmMain;
 
             var filePath = PathFile.PathFileStr;
-            
+
             if (!File.Exists(filePath))
             {
                 FrmMain.Navigate(new StartPanel());
-                _saver = new TimeSaver();
                 return;
             }
 
@@ -32,13 +31,11 @@ namespace TelegramBot
             if (data == null)
             {
                 FrmMain.Navigate(new StartPanel());
-                _saver = new TimeSaver();
                 return;
             }
 
             CompanyProfile.ReadData(data);
             FrmMain.Navigate(new PageMainAdminPanel());
-            _saver = new TimeSaver();
         }
 
         private void BtnClickExit(object sender, RoutedEventArgs e) =>

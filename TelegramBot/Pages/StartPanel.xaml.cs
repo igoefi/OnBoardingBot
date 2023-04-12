@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using TelegramBot.Classes;
 using TelegramBot.Classes.Helper;
 using TelegramBot.Pages.AdminPanel;
 
@@ -29,6 +18,20 @@ namespace TelegramBot.Pages
 
         private void BtnClickNextPage(object sender, RoutedEventArgs e)
         {
+            var textBox = (TextBox)TxbCompanyName.Template.FindName("TB", TxbCompanyName);
+            var name = textBox.Text;
+
+            textBox = (TextBox)TxbAboutCompany.Template.FindName("TB", TxbAboutCompany);
+            var about = textBox.Text;
+
+            textBox = (TextBox)TxbToken.Template.FindName("TB", TxbToken);
+            var token = textBox.Text;
+
+            textBox = (TextBox)TxbAnswer.Template.FindName("TB", TxbAnswer);
+            var answer = textBox.Text;
+
+            CompanyProfile.FirstStart(name, about, token, answer);
+
             FrameNav.FrameNavigation.Navigate(new PageMainAdminPanel());
         }
     }

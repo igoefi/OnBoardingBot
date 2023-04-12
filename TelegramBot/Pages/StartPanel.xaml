@@ -12,16 +12,16 @@
         <StackPanel
             HorizontalAlignment="Center"
             VerticalAlignment="Center">
-            <TextBox
-                 Style="{StaticResource Title}"
+            <TextBox Name="TxbCompanyName"
+                Style="{StaticResource Title}"
                 Margin="0,5,0,0"/>
-            <TextBox
+            <TextBox Name="TxbAboutCompany"
                  Style="{StaticResource AboutComp}"
                 Margin="0,5,0,0"/>
-            <TextBox
+            <TextBox Name="TxbToken"
                 Style="{StaticResource Token}"
                 Margin="0,5,0,0"/>
-            <TextBox
+            <TextBox Name="TxbAnswer"
                 Style="{StaticResource Start}"
                 Margin="0,5,0,0"/>
 
