@@ -13,6 +13,7 @@
                 <ResourceDictionary Source="Style/ComboBoxStyle.xaml"/>
                 <ResourceDictionary Source="Style/StartPanel.xaml"/>
                 <ResourceDictionary Source="Style/CreateUser.xaml"/>
+                <ResourceDictionary Source="Style/CreateTest.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

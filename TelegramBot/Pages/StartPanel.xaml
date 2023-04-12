@@ -21,6 +21,9 @@
             <TextBox
                 Style="{StaticResource Token}"
                 Margin="0,5,0,0"/>
+            <TextBox
+                Style="{StaticResource Start}"
+                Margin="0,5,0,0"/>
 
             <Button
                 Click="BtnClickNextPage"
