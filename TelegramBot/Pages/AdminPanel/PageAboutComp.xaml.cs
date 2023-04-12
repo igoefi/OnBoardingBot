@@ -17,11 +17,11 @@ using TelegramBot.Classes.Helper;
 namespace TelegramBot.Pages.AdminPanel
 {
     /// <summary>
-    /// Логика взаимодействия для CreateTest.xaml
+    /// Логика взаимодействия для PageAboutComp.xaml
     /// </summary>
-    public partial class CreateTest : Page
+    public partial class PageAboutComp : Page
     {
-        public CreateTest()
+        public PageAboutComp()
         {
             InitializeComponent();
         }
@@ -29,13 +29,9 @@ namespace TelegramBot.Pages.AdminPanel
         {
             FrameNav.FrameNavigation.GoBack();
         }
-        private void BtnClickCreateTest(object sender, RoutedEventArgs e)
+        private void BtnClickSaveAboutComp(object sender, RoutedEventArgs e)
         {
-            FrameNav.FrameNavigation.Navigate(new PageCreateTest());
-        }
-        private void BtnClickChangeTest(object sender, RoutedEventArgs e)
-        {
-            FrameNav.FrameNavigation.Navigate(new PageChangeTest());
+            FrameNav.FrameNavigation.GoBack();
         }
     }
 }

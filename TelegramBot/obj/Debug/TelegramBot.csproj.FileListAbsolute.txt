@@ -212,3 +212,10 @@ L:\TelegramBot\OnBoardingBot\TelegramBot\obj\Debug\Style\CreateUser.baml
 L:\TelegramBot\OnBoardingBot\TelegramBot\obj\Debug\Style\StartPanel.baml
 L:\TelegramBot\OnBoardingBot\TelegramBot\obj\Debug\Pages\StartPanel.g.cs
 L:\TelegramBot\OnBoardingBot\TelegramBot\obj\Debug\Pages\StartPanel.baml
+D:\repos\CodeRocks\OnBoardingBot\TelegramBot\obj\Debug\Pages\AdminPanel\PageAboutComp.g.cs
+D:\repos\CodeRocks\OnBoardingBot\TelegramBot\obj\Debug\Pages\AdminPanel\PageAboutComp.baml
+D:\repos\CodeRocks\OnBoardingBot\TelegramBot\obj\Debug\Style\CreateTest.baml
+D:\repos\CodeRocks\OnBoardingBot\TelegramBot\obj\Debug\Pages\AdminPanel\PageChangeTest.g.cs
+D:\repos\CodeRocks\OnBoardingBot\TelegramBot\obj\Debug\Pages\AdminPanel\PageCreateTest.g.cs
+D:\repos\CodeRocks\OnBoardingBot\TelegramBot\obj\Debug\Pages\AdminPanel\PageChangeTest.baml
+D:\repos\CodeRocks\OnBoardingBot\TelegramBot\obj\Debug\Pages\AdminPanel\PageCreateTest.baml

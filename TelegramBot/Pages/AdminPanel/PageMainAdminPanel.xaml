@@ -31,7 +31,7 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-
+            
             <Button Click="BtnClickGoSettings"
                     BorderBrush="Transparent"
                     Width="200"
@@ -42,8 +42,7 @@
                         <Grid>
                             <Rectangle RadiusX="8"
                                            RadiusY="5"
-                                           Fill="#4F4557"
-                                           >
+                                           Fill="#4F4557">
                             </Rectangle>
                             <TextBlock Text="Токен"
                                            HorizontalAlignment="Center"
@@ -68,6 +67,27 @@
                                            >
                             </Rectangle>
                             <TextBlock Text="Создать код сотрудника"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                       FontSize="15"
+                                           Foreground="#F4EEE0"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Click="BtnClickGoAboutComp"
+                    BorderBrush="Transparent"
+                    Width="200"
+                    Height="30"
+                    Margin="0,5,0,0">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Rectangle RadiusX="8"
+                                           RadiusY="5"
+                                           Fill="#4F4557">
+                            </Rectangle>
+                            <TextBlock Text="Данные компании"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
                                        FontSize="15"
