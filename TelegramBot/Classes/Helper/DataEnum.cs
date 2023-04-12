@@ -3,9 +3,9 @@
     public enum DataEnum
     {
         StartTest,
-        StartNewChapter,
+        Education,
         GetEmployees,
-        GetCompanyName,
+        GetCompanyInfo,
         GoToMain
 
     }

@@ -114,6 +114,8 @@
     <Compile Include="Classes\Helper\DataEnum.cs" />
     <Compile Include="Classes\Helper\FrameNav.cs" />
     <Compile Include="Classes\Helper\JSONSerializeController.cs" />
+    <Compile Include="Classes\Helper\PathFile.cs" />
+    <Compile Include="Classes\Helper\TimeSaver.cs" />
     <Compile Include="Classes\JSON\Employee.cs" />
     <Compile Include="Classes\JSON\Part.cs" />
     <Compile Include="Classes\JSON\Product.cs" />

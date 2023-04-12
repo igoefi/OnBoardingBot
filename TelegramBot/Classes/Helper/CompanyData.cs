@@ -7,6 +7,7 @@ namespace TelegramBot.Classes.Helper
     {
         public string Token { get; set; }
         public string CompanyName { get; set; }
+        public string CompanyInfo { get; set; }
         public Dictionary<string, string> SpecialWords { get; set; }
         public List<User> Users { get; set; }
         public List<Product> Products { get; set; }

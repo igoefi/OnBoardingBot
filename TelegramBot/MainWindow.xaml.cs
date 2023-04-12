@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using System.IO;
+using System.Windows;
 using System.Windows.Input;
+using TelegramBot.Classes;
 using TelegramBot.Classes.Helper;
 using TelegramBot.Pages;
 using TelegramBot.Pages.AdminPanel;
@@ -11,11 +13,32 @@ namespace TelegramBot
     /// </summary>
     public partial class MainWindow : Window
     {
+        private TimeSaver _saver;
         public MainWindow()
         {
             InitializeComponent();
             FrameNav.FrameNavigation = FrmMain;
-            FrmMain.Navigate(new StartPanel());
+
+            var filePath = PathFile.PathFileStr;
+            
+            if (!File.Exists(filePath))
+            {
+                FrmMain.Navigate(new StartPanel());
+                _saver = new TimeSaver();
+                return;
+            }
+
+            var data = JSONSerializeController.DeserializeObject<CompanyData>(filePath);
+            if (data == null)
+            {
+                FrmMain.Navigate(new StartPanel());
+                _saver = new TimeSaver();
+                return;
+            }
+
+            CompanyProfile.ReadData(data);
+            FrmMain.Navigate(new PageMainAdminPanel());
+            _saver = new TimeSaver();
         }
 
         private void BtnClickExit(object sender, RoutedEventArgs e) =>

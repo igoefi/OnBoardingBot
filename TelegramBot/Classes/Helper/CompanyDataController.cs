@@ -7,7 +7,7 @@ namespace TelegramBot.Classes.Helper
     {
         public static User FindUserByID(long chatID)
         {
-            System.Collections.Generic.List<User> users = CompanyProfile.Data.Users;
+            var users = CompanyProfile.Data.Users;
             foreach (User user in users)
             {
                 if (user.ChatID == chatID)
@@ -44,6 +44,8 @@ namespace TelegramBot.Classes.Helper
 
         public static string GetCompanyName() =>
             CompanyProfile.Data.CompanyName;
+        public static string GetCompanyInfo() =>
+            CompanyProfile.Data.CompanyInfo;
 
         public static Dictionary<string, string> GetSpecialWords() =>
             CompanyProfile.Data.SpecialWords;

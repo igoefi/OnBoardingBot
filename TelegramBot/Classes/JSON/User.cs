@@ -1,4 +1,5 @@
-﻿using TelegramBot.Classes.Users;
+﻿using System;
+using TelegramBot.Classes.Users;
 
 namespace TelegramBot.Classes.JSON
 {
@@ -10,6 +11,7 @@ namespace TelegramBot.Classes.JSON
         public string Speciality { get; private set; }
         public int SocialCredits { get; private set; }
         public int SelectedChapter { get; set; }
+        public bool IsEndedTest { get; private set; } = true;
         public long ChatID { get; private set; }
         public Victrorine? SelectedVictorine { get; private set; }
 
@@ -46,12 +48,16 @@ namespace TelegramBot.Classes.JSON
             int allSum = SelectedVictorine.Value.Data.QuestionCost * SelectedVictorine.Value.Data.QuestionsAnswers.Count;
             SelectedVictorine = null;
             PlusSocialCredits(result);
+            IsEndedTest = true;
             return $"Результат: {result} из {allSum} социальных кредитов";
         }
 
         public void SetVictorine(Part part)
         {
+            if (SelectedVictorine != null) return;
 
+            SelectedVictorine = new Victrorine(part.Victorine);
+            IsEndedTest = false;
         }
 
         private void PlusSocialCredits(int plus) =>

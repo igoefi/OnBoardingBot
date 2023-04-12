@@ -1,11 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Speech.Synthesis;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using Telegram.Bot;
 using Telegram.Bot.Types;
+using Telegram.Bot.Types.ReplyMarkups;
 using TelegramBot.Classes;
 using TelegramBot.Classes.Helper;
+using TelegramBot.Classes.JSON;
 
 namespace TelegramBot
 {
@@ -76,7 +80,7 @@ namespace TelegramBot
                 else
                 {
                     string res = user.SetAnswer(message.Text);
-                    if(res != null)
+                    if (res != null)
                         await client.SendTextMessageAsync(message.Chat.Id, res, cancellationToken: token);
                     else
                         await client.SendTextMessageAsync(message.Chat.Id, user.GetActualQuestion(), cancellationToken: token);
@@ -91,6 +95,7 @@ namespace TelegramBot
                 var user = CompanyDataController.FindUserByID(message.Chat.Id);
                 if (user == null) return;
 
+                InlineKeyboardMarkup inlineKeyboard;
                 switch (resultEnum)
                 {
                     case DataEnum.StartTest:
@@ -101,21 +106,75 @@ namespace TelegramBot
 
                         break;
 
-                    case DataEnum.StartNewChapter:
-                        user.SelectedChapter++;
+                    case DataEnum.Education:
+                        if (user.IsEndedTest)
+                            user.SelectedChapter++;
 
                         var selectedPart = CompanyDataController.GetEducationPart(user.Speciality, user.SelectedChapter);
                         if (selectedPart == null) return;
 
                         await client.SendTextMessageAsync(message.Chat.Id, selectedPart.Theory, cancellationToken: token);
 
+                        inlineKeyboard = new InlineKeyboardMarkup(new[]
+                        {
+                            new[]
+                            {
+                                InlineKeyboardButton.WithCallbackData("Начать тест", DataEnum.StartTest.ToString())
+                            },
+                            new[]
+                            {
+                                InlineKeyboardButton.WithCallbackData("В главное меню", DataEnum.GoToMain.ToString())
+                            }
+                        });
+
+                        await _client.SendTextMessageAsync(message.Chat.Id, "Выберите голос", replyMarkup: inlineKeyboard, cancellationToken: _token);
+                        break;
+
+                    case DataEnum.GetCompanyInfo:
+                        await client.SendTextMessageAsync(message.Chat.Id, CompanyDataController.GetCompanyName(), cancellationToken: token);
+                        await client.SendTextMessageAsync(message.Chat.Id, CompanyDataController.GetCompanyInfo(), cancellationToken: token);
+                        break;
+
+                    case DataEnum.GetEmployees:
+                        string needMessage = string.Empty;
+
+                        var allEmployees = CompanyDataController.GetEmployees();
+                        if (allEmployees == null) return;
+
+                        allEmployees.TryGetValue(user.Speciality, out List<Employee> employees);
+                        if (employees == null) return;
+                        foreach (var employee in employees)
+                        {
+                            string employeeText = string.Empty;
+                            employeeText += employee.FullName + "\n";
+                            employeeText += employee.Description + "\n";
+                            employeeText += "Emai: " + employee.Email + "\n";
+                            needMessage += employeeText + "\n";
+                        }
+
+                        await client.SendTextMessageAsync(message.Chat.Id, needMessage, cancellationToken: token);
+                        break;
+
+                    case DataEnum.GoToMain:
+                        inlineKeyboard = new InlineKeyboardMarkup(new[]
+                        {
+                            new[]
+                            {
+                                InlineKeyboardButton.WithCallbackData("О компании", DataEnum.GetCompanyInfo.ToString()),
+                                InlineKeyboardButton.WithCallbackData("Сотрудники", DataEnum.GetEmployees.ToString())
+                            },
+                            new[]
+                            {
+                                InlineKeyboardButton.WithCallbackData("Обучение", DataEnum.Education.ToString())
+                            }
+                        });
+
+                        await _client.SendTextMessageAsync(message.Chat.Id, "Выберите голос", replyMarkup: inlineKeyboard, cancellationToken: _token);
                         break;
                 }
 
             }
         }
-
-
 
         private static Task Error(ITelegramBotClient arg1, Exception exception, CancellationToken arg3)
         {
