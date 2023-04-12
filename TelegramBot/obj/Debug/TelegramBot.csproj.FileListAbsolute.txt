@@ -219,3 +219,6 @@ D:\repos\CodeRocks\OnBoardingBot\TelegramBot\obj\Debug\Pages\AdminPanel\PageChan
 D:\repos\CodeRocks\OnBoardingBot\TelegramBot\obj\Debug\Pages\AdminPanel\PageCreateTest.g.cs
 D:\repos\CodeRocks\OnBoardingBot\TelegramBot\obj\Debug\Pages\AdminPanel\PageChangeTest.baml
 D:\repos\CodeRocks\OnBoardingBot\TelegramBot\obj\Debug\Pages\AdminPanel\PageCreateTest.baml
+D:\repos\CodeRocks\OnBoardingBot\TelegramBot\obj\Debug\Style\CreateDirection.baml
+D:\repos\CodeRocks\OnBoardingBot\TelegramBot\obj\Debug\Pages\AdminPanel\PageCreateDirection.g.cs
+D:\repos\CodeRocks\OnBoardingBot\TelegramBot\obj\Debug\Pages\AdminPanel\PageCreateDirection.baml

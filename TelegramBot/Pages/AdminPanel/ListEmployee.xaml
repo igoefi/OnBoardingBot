@@ -9,52 +9,44 @@
       Title="ListEmployee">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-
-        <Grid>
-            <TextBlock Text="Добавить"
+        <TextBlock Text="Добавить"
+                   Grid.Column="0"
                         Foreground="#F4EEE0"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Center"
                        FontSize="30"/>
-
-            <Grid
-                Margin="0,70,50,0">
-                <StackPanel
-                        HorizontalAlignment="Right"
-                    MaxWidth="200">
-                    <TextBlock
-                        TextWrapping="Wrap"
-                        Foreground="#F4EEE0"
-                        FontSize="17">
-                        Название: <Run Name="RnVoiceName"/>
-                    </TextBlock>
-
-                    <TextBlock
-                        TextWrapping="Wrap"
-                        Foreground="#F4EEE0"
-                        FontSize="17"
-                        Margin="0,20,0,0">
-                        Озучиваемый язык: <Run Name="RnVoiceCulture"/>
-                    </TextBlock>
-                </StackPanel>
-            </Grid>
-        </Grid>
-
+        <StackPanel
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center">
+                <TextBox
+                    Margin="0,5,0,0"
+                Style="{StaticResource Firstname}"/>
+                <TextBox
+                    Margin="0,5,0,0"
+                Style="{StaticResource Surname}"/>
+                <GroupBox>
+                    <StackPanel>
+                        <TextBlock
+                        Text="Направление"
+                        Foreground="#F4EEE0"/>
+                        <ComboBox
+                        Style="{StaticResource Line2}"/>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+        
         <Button 
                 BorderBrush="Transparent"
-                Width="100"
+                Width="150"
                 Height="30"
                 VerticalAlignment="Bottom"
-                HorizontalAlignment="Left"
-                Margin="10,0,0,20" Grid.Row="1">
+                HorizontalAlignment="Center"
+                Margin="0,0,0,20" Grid.Row="1">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Grid>
@@ -71,47 +63,35 @@
             </Button.Template>
         </Button>
 
-        <Grid Grid.Column="1">
-            <TextBlock Text="Удалить"
+            <TextBlock 
+                Grid.Column="2"
+                Text="Удалить"
                        Foreground="#F4EEE0"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Center"
                        FontSize="30"/>
-            
-            <Grid
-                Margin="0,70,50,0">
-                <StackPanel
-                        HorizontalAlignment="Right"
-                    MaxWidth="200">
-                    <TextBlock
-                        TextWrapping="Wrap"
-                        Foreground="#F4EEE0"
-                        FontSize="17">
-                        Название: <Run Name="RnSelectedVoiceName"/>
-                    </TextBlock>
-
-                    <TextBlock
-                        TextWrapping="Wrap"
-                        Foreground="#F4EEE0"
-                        FontSize="17"
-                        Margin="0,20,0,0">
-                        Озучиваемый язык: <Run Name="RnSelectedVoiceCulture"/>
-                    </TextBlock>
-                </StackPanel>
-            </Grid>
-        </Grid>
-
-        <StackPanel
-                Orientation="Horizontal"
-                VerticalAlignment="Bottom"
-                HorizontalAlignment="Right"            
-                Grid.Row="1"
-                Grid.Column="1">
-            <Button 
+        <GroupBox
+            Grid.Column="2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <StackPanel>
+                <TextBlock
+                    Text="Сотрудник"
+                    Foreground="#F4EEE0"/>
+                <ComboBox
+                    Width="150"
+                    Height="30"
+                    Style="{StaticResource Line2}"/>
+            </StackPanel>
+        </GroupBox>
+        <Button 
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Center"
+            Grid.Column="2"
                 BorderBrush="Transparent"
-                Width="100"
+                Width="150"
                 Height="30"
-                Margin="0,0,10,20">
+                Margin="0,0,0,20">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Grid>
@@ -119,7 +99,7 @@
                                            RadiusY="5"
                                            Fill="#4F4557">
                             </Rectangle>
-                            <TextBlock Text="Удалить голос"
+                            <TextBlock Text="Удалить сотрудника"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
                                            Foreground="#F4EEE0"/>
@@ -128,28 +108,29 @@
                 </Button.Template>
             </Button>
 
-            <Button
+        <Button
+            Grid.Column="1"
+            VerticalAlignment="Bottom"
+            HorizontalContentAlignment="Center"
                 Click="BtnClickBack"
                 BorderBrush="Transparent"
-                Width="100"
+                Width="150"
                 Height="30"
-                Margin="0,0,10,20">
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Grid>
-                            <Rectangle RadiusX="8"
+                Margin="0,0,0,20">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Rectangle RadiusX="8"
                                            RadiusY="5"
                                            Fill="#4F4557">
-                            </Rectangle>
-                            <TextBlock Text="Назад"
+                        </Rectangle>
+                        <TextBlock Text="Назад"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
                                            Foreground="#F4EEE0"/>
-                        </Grid>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-        </StackPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
     </Grid>
 </Page>

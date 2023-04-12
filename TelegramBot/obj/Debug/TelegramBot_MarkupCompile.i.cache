@@ -10,17 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\repos\CodeRocks\OnBoardingBot\TelegramBot\App.xaml
-191407685449
+21851274004
 
-<<<<<<< HEAD
-281685640815
-25-863079837
-MainWindow.xaml;Pages\AdminPanel\CreateTest.xaml;Pages\AdminPanel\CreateUser.xaml;Pages\AdminPanel\KeyWords.xaml;Pages\AdminPanel\ListEmployee.xaml;Pages\AdminPanel\PageBotSettings.xaml;Pages\AdminPanel\PageMainAdminPanel.xaml;Pages\StartPanel.xaml;Style\ComboBoxStyle.xaml;Style\CreateUser.xaml;Style\StartPanel.xaml;Style\ReferalCode.xaml;Style\Token.xaml;Style\Password.xaml;Style\LoginBox.xaml;
-=======
-29-380074134
+321425178404
 25900489591
-MainWindow.xaml;Pages\AdminPanel\CreateTest.xaml;Pages\AdminPanel\CreateUser.xaml;Pages\AdminPanel\KeyWords.xaml;Pages\AdminPanel\ListEmployee.xaml;Pages\AdminPanel\PageAboutComp.xaml;Pages\AdminPanel\PageBotSettings.xaml;Pages\AdminPanel\PageChangeTest.xaml;Pages\AdminPanel\PageCreateTest.xaml;Pages\AdminPanel\PageMainAdminPanel.xaml;Pages\StartPanel.xaml;Style\ComboBoxStyle.xaml;Style\CreateTest.xaml;Style\CreateUser.xaml;Style\StartPanel.xaml;Style\ReferalCode.xaml;Style\Token.xaml;Style\Password.xaml;Style\LoginBox.xaml;
->>>>>>> 1552061 (Front0.3)
+MainWindow.xaml;Pages\AdminPanel\CreateTest.xaml;Pages\AdminPanel\CreateUser.xaml;Pages\AdminPanel\KeyWords.xaml;Pages\AdminPanel\ListEmployee.xaml;Pages\AdminPanel\PageAboutComp.xaml;Pages\AdminPanel\PageBotSettings.xaml;Pages\AdminPanel\PageChangeTest.xaml;Pages\AdminPanel\PageCreateDirection.xaml;Pages\AdminPanel\PageCreateTest.xaml;Pages\AdminPanel\PageMainAdminPanel.xaml;Pages\StartPanel.xaml;Style\ComboBoxStyle.xaml;Style\CreateTest.xaml;Style\CreateUser.xaml;Style\StartPanel.xaml;Style\ReferalCode.xaml;Style\CreateDirection.xaml;Style\Token.xaml;Style\Password.xaml;Style\LoginBox.xaml;
 
-True
+False
 

@@ -18,8 +18,15 @@
             Grid.Column="0"
             HorizontalAlignment="Right"
             VerticalAlignment="Center">
-            <ComboBox
-            Style="{StaticResource Line2}"/>
+            <GroupBox>
+                <StackPanel>
+                    <TextBlock
+                        Text="Направление"
+                        Foreground="#F4EEE0"/>
+                    <ComboBox
+                Style="{StaticResource Line2}"/>
+                </StackPanel>
+            </GroupBox>
             <TextBox
             Margin="0,5,0,0"
             Style="{StaticResource TitleTest}"/>

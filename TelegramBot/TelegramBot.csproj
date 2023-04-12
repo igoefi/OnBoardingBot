@@ -155,6 +155,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\AdminPanel\PageCreateDirection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AdminPanel\PageCreateTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -184,6 +188,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Style\ReferalCode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\CreateDirection.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -221,6 +229,9 @@
     </Compile>
     <Compile Include="Pages\AdminPanel\PageChangeTest.xaml.cs">
       <DependentUpon>PageChangeTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminPanel\PageCreateDirection.xaml.cs">
+      <DependentUpon>PageCreateDirection.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\AdminPanel\PageCreateTest.xaml.cs">
       <DependentUpon>PageCreateTest.xaml</DependentUpon>

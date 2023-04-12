@@ -41,6 +41,8 @@ namespace TelegramBot.Pages.AdminPanel
             FrameNav.FrameNavigation.Navigate(new CreateTest());
         private void BtnClickGoAboutComp(object sender, RoutedEventArgs e) =>
             FrameNav.FrameNavigation.Navigate(new PageAboutComp());
+        private void BtnClickCreateDirection(object sender, RoutedEventArgs e) =>
+        FrameNav.FrameNavigation.Navigate(new PageCreateDirection());
     }
 }
 
