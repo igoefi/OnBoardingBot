@@ -12,7 +12,7 @@
         <StackPanel
             VerticalAlignment="Center"
             HorizontalAlignment="Center">
-            <TextBox Name="TxbToken"
+            <TextBox Name="TxbSpeciality"
                 Style="{StaticResource Direction}"/>
             <Button Click="BtnClickSave"
                     BorderBrush="Transparent"

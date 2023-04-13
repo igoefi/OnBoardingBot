@@ -20,7 +20,7 @@
             </Grid.RowDefinitions>
 
             <Rectangle
-            Fill="#F4EEE0"
+            Fill="#4F4557"
             RadiusX="8"
                 RadiusY="8"/>
 
@@ -30,13 +30,16 @@
 
                 <Button HorizontalAlignment="Right"
                     VerticalAlignment="Center"
-                    Margin="0,0,10,0"
+                    Margin="0,0,15,0"
                     BorderThickness="0"
                     Click="BtnClickHide"
                     Height="20"
-                    Width="20"
-                    Background="Transparent">
-                    <Image/>
+                    Width="20">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Ellipse Fill="#fdbd3e"/>
+                        </ControlTemplate>
+                    </Button.Template>
                 </Button>
 
                 <Button HorizontalAlignment="Right"

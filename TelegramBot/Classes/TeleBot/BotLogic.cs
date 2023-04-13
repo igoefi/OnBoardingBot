@@ -49,6 +49,8 @@ namespace TelegramBot
             if (message != null)
             {
                 Classes.JSON.User user = CompanyDataController.FindUserByID(message.Chat.Id);
+
+
                 if (user == null)
                 {
                     if (message.Text == "/start")
@@ -57,11 +59,12 @@ namespace TelegramBot
                     }
                     else
                     {
-                        Classes.JSON.User userByCode = CompanyDataController.FindUserByCode(message.Text);
+                        var userByCode = CompanyDataController.FindUserByCode(message.Text);
                         if (userByCode != null)
-                            if (userByCode.ChatID != default)
+                            if (userByCode.ChatID == 0)
                             {
-                                user.SetChatID(message.Chat.Id);
+                                userByCode.SetChatID(message.Chat.Id);
+                                await client.SendTextMessageAsync(message.Chat.Id, "Код принят", cancellationToken: _token);
 
                                 var inlineKeyboard = new InlineKeyboardMarkup(new[]
                                     {
@@ -75,43 +78,59 @@ namespace TelegramBot
                                             InlineKeyboardButton.WithCallbackData("Обучение", DataEnum.Education.ToString())
                                         }
                                     });
-
-                                await _client.SendTextMessageAsync(message.Chat.Id, "", replyMarkup: inlineKeyboard, cancellationToken: _token);
+                                await client.SendTextMessageAsync(message.Chat.Id, "Действие", replyMarkup: inlineKeyboard, cancellationToken: _token);
                             }
-                            else
+                            else if (userByCode.SelectedVictorine == null)
                                 await client.SendTextMessageAsync(message.Chat.Id, "Этим кодом уже воспользовались", cancellationToken: token);
-                        else
-                            await client.SendTextMessageAsync(message.Chat.Id, "Некорреектный код", cancellationToken: token);
+                            else
+                                await client.SendTextMessageAsync(message.Chat.Id, "Некорреектный код", cancellationToken: token);
                     }
                     return;
                 }
+                else if (user.SelectedVictorine != null)
+                {
+                    var res = user.SetAnswer(message.Text);
+                    if (res != null)
+                    {
+                        await client.SendTextMessageAsync(message.Chat.Id, res, cancellationToken: token);
+                        var inlineKeyboard = new InlineKeyboardMarkup(new[]
+                        {
+                            new[]
+                            {
+                                InlineKeyboardButton.WithCallbackData("О компании", DataEnum.GetCompanyInfo.ToString()),
+                                InlineKeyboardButton.WithCallbackData("Сотрудники", DataEnum.GetEmployees.ToString())
+                            },
+                            new[]
+                            {
+                                InlineKeyboardButton.WithCallbackData("Обучение", DataEnum.Education.ToString())
+                            }
+                        });
 
-                if (user.SelectedVictorine == null)
+                        await client.SendTextMessageAsync(message.Chat.Id, "Действие", replyMarkup: inlineKeyboard, cancellationToken: _token);
+                    }
+                    else
+                        await client.SendTextMessageAsync(message.Chat.Id, user.GetActualQuestion(), cancellationToken: token);
+                }
+                else
                 {
                     var words = CompanyProfile.Data.SpecialWords;
                     foreach (string word in words.Keys)
                         if (message.Text.ToLower() == word.ToLower())
                             await client.SendTextMessageAsync(message.Chat.Id, words[word], cancellationToken: token);
-                }
-                else
-                {
-                    string res = user.SetAnswer(message.Text);
-                    if (res != null)
-                        await client.SendTextMessageAsync(message.Chat.Id, res, cancellationToken: token);
-                    else
-                        await client.SendTextMessageAsync(message.Chat.Id, user.GetActualQuestion(), cancellationToken: token);
+
                 }
             }
             else if (result != null)
             {
-                Enum.TryParse(result.Data, out DataEnum resultEnum);
-                if (resultEnum == default)
+                if (!Enum.TryParse(result.Data, out DataEnum resultEnum))
                     return;
 
-                var user = CompanyDataController.FindUserByID(message.Chat.Id);
-                if (user == null) return;
+                var chatId = result.Message.Chat.Id;
 
+                var user = CompanyDataController.FindUserByID(chatId);
+                if (user == null) return;
                 InlineKeyboardMarkup inlineKeyboard;
+
                 switch (resultEnum)
                 {
                     case DataEnum.StartTest:
@@ -119,17 +138,22 @@ namespace TelegramBot
                         if (part == null) return;
 
                         user.SetVictorine(part);
-
+                        await client.SendTextMessageAsync(chatId, user.GetActualQuestion(), cancellationToken: token);
                         break;
 
                     case DataEnum.Education:
                         if (user.IsEndedTest)
                             user.SelectedChapter++;
+                        user.IsEndedTest = false;
 
                         var selectedPart = CompanyDataController.GetEducationPart(user.Speciality, user.SelectedChapter);
-                        if (selectedPart == null) return;
+                        if (selectedPart == null)
+                        {
+                            await client.SendTextMessageAsync(chatId, "Уроков больше нет", cancellationToken: token);
+                            return;
+                        }
 
-                        await client.SendTextMessageAsync(message.Chat.Id, selectedPart.Theory, cancellationToken: token);
+                        await client.SendTextMessageAsync(chatId, selectedPart.Theory, cancellationToken: token);
 
                         inlineKeyboard = new InlineKeyboardMarkup(new[]
                         {
@@ -143,14 +167,14 @@ namespace TelegramBot
                             }
                         });
 
-                        await _client.SendTextMessageAsync(message.Chat.Id, "", replyMarkup: inlineKeyboard, cancellationToken: _token);
+                        await client.SendTextMessageAsync(chatId, "Действие", replyMarkup: inlineKeyboard, cancellationToken: _token);
                         break;
 
                     case DataEnum.GetCompanyInfo:
-                        await client.SendTextMessageAsync(message.Chat.Id, CompanyDataController.GetCompanyName(), cancellationToken: token);
-                        await client.SendTextMessageAsync(message.Chat.Id, CompanyDataController.GetCompanyInfo(), cancellationToken: token);
+                        await client.SendTextMessageAsync(chatId, CompanyDataController.GetCompanyName(), cancellationToken: token);
+                        await client.SendTextMessageAsync(chatId, CompanyDataController.GetCompanyInfo(), cancellationToken: token);
 
-                        await _client.SendTextMessageAsync(message.Chat.Id, "",
+                        await client.SendTextMessageAsync(chatId, "Действие",
                             replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("В главное меню", DataEnum.GoToMain.ToString()) }), cancellationToken: _token);
                         break;
 
@@ -158,10 +182,10 @@ namespace TelegramBot
                         string needMessage = string.Empty;
 
                         var allEmployees = CompanyDataController.GetEmployees();
-                        if (allEmployees == null) return;
+                        if (allEmployees == null || allEmployees.Count == 0) return;
 
                         allEmployees.TryGetValue(user.Speciality, out List<Employee> employees);
-                        if (employees == null) return;
+                        if (employees == null || employees.Count == 0) return;
                         foreach (var employee in employees)
                         {
                             string employeeText = string.Empty;
@@ -171,9 +195,9 @@ namespace TelegramBot
                             needMessage += employeeText + "\n";
                         }
 
-                        await client.SendTextMessageAsync(message.Chat.Id, needMessage, cancellationToken: token);
+                        await client.SendTextMessageAsync(chatId, needMessage, cancellationToken: token);
 
-                        await _client.SendTextMessageAsync(message.Chat.Id, "",
+                        await client.SendTextMessageAsync(chatId, "Действие",
                             replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("В главное меню", DataEnum.GoToMain.ToString()) }), cancellationToken: _token);
                         break;
 
@@ -191,18 +215,15 @@ namespace TelegramBot
                             }
                         });
 
-                        await _client.SendTextMessageAsync(message.Chat.Id, "", replyMarkup: inlineKeyboard, cancellationToken: _token);
+                        await client.SendTextMessageAsync(chatId, "Действие", replyMarkup: inlineKeyboard, cancellationToken: _token);
                         break;
                 }
-
             }
         }
 
         private static Task Error(ITelegramBotClient arg1, Exception exception, CancellationToken arg3)
         {
-            MessageBox.Show("Произошла ошибка при работе бота. Подробнее:" + exception.Message.ToString());
-
-            return null;
+            throw exception;
         }
     }
 }

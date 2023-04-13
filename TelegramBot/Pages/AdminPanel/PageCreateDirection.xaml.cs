@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using TelegramBot.Classes;
 using TelegramBot.Classes.Helper;
+using TelegramBot.Classes.JSON;
 
 namespace TelegramBot.Pages.AdminPanel
 {
@@ -31,6 +22,18 @@ namespace TelegramBot.Pages.AdminPanel
         }
         private void BtnClickSave(object sender, RoutedEventArgs e)
         {
+            var textBox = (TextBox)TxbSpeciality.Template.FindName("TB", TxbSpeciality);
+            var spec = textBox.Text;
+
+            if (string.IsNullOrWhiteSpace(spec))
+            {
+                MessageBox.Show("Пустое поле названия направления");
+                return;
+            }
+
+            CompanyProfile.Data.EducationParts.Add(spec, new List<Part>());
+            CompanyProfile.Data.Eployees.Add(spec, new List<Employee>());
+
             FrameNav.FrameNavigation.GoBack();
         }
     }

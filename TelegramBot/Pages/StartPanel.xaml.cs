@@ -30,6 +30,12 @@ namespace TelegramBot.Pages
             textBox = (TextBox)TxbAnswer.Template.FindName("TB", TxbAnswer);
             var answer = textBox.Text;
 
+            if(string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(about) || string.IsNullOrWhiteSpace(token) || string.IsNullOrWhiteSpace(answer))
+            {
+                MessageBox.Show("Одно или несколько полей не заполнено");
+                return;
+            }
+
             CompanyProfile.FirstStart(name, about, token, answer);
 
             FrameNav.FrameNavigation.Navigate(new PageMainAdminPanel());

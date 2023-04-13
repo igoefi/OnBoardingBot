@@ -14,36 +14,36 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        
-        <ComboBox Name="CmbBoxTest"
-            Style="{StaticResource Line2}"
-                  Grid.Column="1"
-                  HorizontalAlignment="Center"
-                  VerticalAlignment="Top"
-                  Height="20"
-                  Width="150"
-                  Margin="0,20,0,0"/>
-        
+
         <StackPanel
             Grid.Column="0"
             HorizontalAlignment="Right"
             VerticalAlignment="Center">
-            <GroupBox>
+            <GroupBox
+            Header="Направление"
+            Foreground="#F4EEE0">
                 <StackPanel>
-                    <TextBlock
-                        Text="Направление"
-                        Foreground="#F4EEE0"/>
                     <ComboBox Name="CmbBoxSpeciality"
+                              SelectionChanged="CmbBoxSpecialitySelectionChanged"
                 Style="{StaticResource Line2}"/>
                 </StackPanel>
             </GroupBox>
-            <TextBox
+            <GroupBox
+            Header="Тест"
+            Foreground="#F4EEE0">
+                <StackPanel>
+                    <ComboBox Name="CmbBoxTest"
+                              SelectionChanged="CmbBoxTestSelectionChanged"
+                Style="{StaticResource Line2}"/>
+                </StackPanel>
+            </GroupBox>
+            <TextBox Name="TxbName"
             Margin="0,5,0,0"
             Style="{StaticResource TitleTest}"/>
-            <TextBox
+            <TextBox Name="TxbTheory"
             Margin="0,5,0,0"
             Style="{StaticResource Theory}"/>
-            <TextBox 
+            <TextBox Name="TxbBalls"
             Margin="0,5,0,0"
             Style="{StaticResource Cost}"/>
         </StackPanel>
@@ -51,31 +51,54 @@
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
             Grid.Column="2">
-            <GroupBox>
+            <GroupBox
+            Header="Вопрос"
+            Foreground="#F4EEE0">
                 <StackPanel>
-                    <TextBlock
-                        Text="Вопрос"
-                        Foreground="#F4EEE0"/>
-                    <ComboBox
+                    <ComboBox Name="CmbBoxQuestions"
                 Style="{StaticResource Line2}"/>
                 </StackPanel>
             </GroupBox>
-        <TextBox
+        <TextBox Name="TxbQuestion"
             Margin="0,5,0,0"
             Style="{StaticResource Question}"/>
-        <TextBox
+            <TextBox Name="TxbAnswere"
             Margin="0,5,0,0"
             Style="{StaticResource Answer}"/>
+            <Button
+                Click="BtnClickSaveQuestion"
+                Margin="0,10,0,0"
+                Width="200"
+                Height="30">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Rectangle 
+                                RadiusX="8"
+                                RadiusY="5"
+                                Fill="#4F4557">
+                            </Rectangle>
+                            <TextBlock 
+                                Text="Сохранить вопрос"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="15"
+                                Foreground="#F4EEE0"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
         </StackPanel>
         
         <StackPanel
             VerticalAlignment="Bottom"
             HorizontalAlignment="Center"
-            Grid.Column="1">
+            Grid.ColumnSpan="3"
+            Orientation="Horizontal">
         
             <Button
                 Click="BtnClickSave"
-                Margin="0,5,0,0"
+                Margin="0,0,0,10"
                 Width="200"
                 Height="30">
                 <Button.Template>
@@ -97,8 +120,31 @@
                 </Button.Template>
             </Button>
             <Button
+                Click="BtnClickDelete"
+                Margin="10,0,0,10"
+                Width="200"
+                Height="30">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Rectangle 
+                                RadiusX="8"
+                                RadiusY="5"
+                                Fill="#4F4557">
+                        </Rectangle>
+                        <TextBlock 
+                                Text="Удалить"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="15"
+                                Foreground="#F4EEE0"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+            <Button
                 Click="BtnClickGoBack"
-                Margin="0,5,0,0"
+                Margin="10,0,0,10"
                 Width="200"
                 Height="30">
             <Button.Template>

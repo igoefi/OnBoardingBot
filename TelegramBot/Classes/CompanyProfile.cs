@@ -28,5 +28,22 @@ namespace TelegramBot.Classes
             Data.Token = token;
             Data.SpecialWords.Add("/start", answer);
         }
+
+        public static void DeleteEmployee(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name)) return;
+
+            foreach(var specialization in Data.Eployees.Keys)
+            {
+                foreach(var employee in Data.Eployees[specialization])
+                {
+                    if(employee.FullName == name)
+                    {
+                        Data.Eployees[specialization].Remove(employee);
+                        return;
+                    }
+                }
+            }
+        }
     }
 }

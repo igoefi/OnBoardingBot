@@ -8,7 +8,7 @@ namespace TelegramBot.Classes.Helper
         private readonly Timer _timer = new Timer();
         public TimeSaver()
         {
-            _timer.Interval = 1000;
+            _timer.Interval = 500;
             _timer.Enabled = true;
             _timer.Elapsed += new ElapsedEventHandler(Save);
             _timer.Start();

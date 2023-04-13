@@ -12,12 +12,11 @@
         <StackPanel
             VerticalAlignment="Center"
             HorizontalAlignment="Center">
-            <GroupBox>
+            <GroupBox
+                Header="Направление"
+                Foreground="#F4EEE0">
                 <StackPanel>
-                    <TextBlock
-                        Text="Направление"
-                        Foreground="#F4EEE0"/>
-                    <ComboBox
+                    <ComboBox Name="CmbBoxSpeciality"
                         Style="{StaticResource Line1}"/>
                 </StackPanel>
             </GroupBox>
@@ -27,13 +26,11 @@
             <TextBox Name="TxbSurname"
                 Margin="0,5,0,0"
                 Style="{StaticResource Surname}"/>
-            <ComboBox Name="CmbBoxSpeciality"
-                Margin="0,5,0,0"
-                Style="{StaticResource Line1}"/>
             <TextBox Name="TxbCode"
                 Margin="0,5,0,0"
                 Style="{StaticResource Code}"/>
             <Button     
+                Click="BtnClickCreate"
                 BorderBrush="Transparent"
                 Width="200"
                 Height="30"

@@ -4,15 +4,15 @@ namespace TelegramBot.Classes.JSON
 {
     public class User
     {
-        public string FirstName { get; private set; }
-        public string LastName { get; private set; }
-        public string Code { get; private set; }
-        public string Speciality { get; private set; }
-        public int SocialCredits { get; private set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Code { get; set; }
+        public string Speciality { get; set; }
+        public int SocialCredits { get; set; }
         public int SelectedChapter { get; set; }
-        public bool IsEndedTest { get; private set; } = true;
-        public long ChatID { get; private set; }
-        public Victrorine? SelectedVictorine { get; private set; }
+        public bool IsEndedTest { get; set; } = true;
+        public long ChatID { get;  set; }
+        public Victrorine? SelectedVictorine { get; set; }
 
         public User(string firstName, string lastName, string code, string speciality)
         {
@@ -21,7 +21,7 @@ namespace TelegramBot.Classes.JSON
             Code = code;
             Speciality = speciality;
             SocialCredits = 0;
-            SelectedChapter = 0;
+            SelectedChapter = -1;
             ChatID = default;
             SelectedVictorine = null;
         }

@@ -2,10 +2,10 @@
 {
     public class Part
     {
-        public string Name { get; private set; }
-        public string Theory { get; private set; }
+        public string Name { get; set; }
+        public string Theory { get; set; }
 
-        public VictorineData Victorine { get; private set; }
+        public VictorineData Victorine { get; set; }
 
         public Part(string name, string theory, VictorineData data)
         {

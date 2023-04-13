@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using TelegramBot.Classes.JSON;
 
 namespace TelegramBot.Classes.Users
@@ -22,7 +23,7 @@ namespace TelegramBot.Classes.Users
             if (_answers.Count >= Data.QuestionsAnswers.Count) return null;
 
             var questions = Data.QuestionsAnswers.Keys.ToList();
-            return questions[_answers.Count + 1];
+            return questions[_answers.Count];
         }
 
         public int GetResultInCredits()
@@ -31,7 +32,6 @@ namespace TelegramBot.Classes.Users
 
             if (_answers.Count != quests.Count)
                 return -1;
-
             int sum = 0;
             foreach (string question in quests.Keys)
             {
@@ -39,6 +39,7 @@ namespace TelegramBot.Classes.Users
                     sum += Data.QuestionCost;
             }
             return sum;
+
         }
     }
 }

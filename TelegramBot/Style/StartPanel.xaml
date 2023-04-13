@@ -62,7 +62,8 @@
                                      VerticalAlignment="Center"
                                      Padding="5"
                                      Foreground="#F4EEE0"
-                                     x:Name="TB"/>
+                                     x:Name="TB"
+                                     TextWrapping="WrapWithOverflow"/>
 
                             <TextBlock IsHitTestVisible="False"
                                        Text="О компании"
@@ -155,7 +156,7 @@
                                      x:Name="TB"/>
 
                             <TextBlock IsHitTestVisible="False"
-                                       Text="Отыет на /start"
+                                       Text="Ответ на /start"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Left"
                                        Margin="10,0,0,0"

@@ -32,22 +32,34 @@ namespace TelegramBot.Pages.AdminPanel
         {
             FrameNav.FrameNavigation.GoBack();
         }
+
         private void BtnClickSave(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(TxbName.Text) || string.IsNullOrWhiteSpace(TxbName.Text) || string.IsNullOrWhiteSpace(TxbTheory.Text))
+            var textBox = (TextBox)TxbName.Template.FindName("TB", TxbName);
+            var name = textBox.Text;
+
+            textBox = (TextBox)TxbTheory.Template.FindName("TB", TxbTheory);
+            var theory = textBox.Text;
+
+            textBox = (TextBox)TxbCost.Template.FindName("TB", TxbCost);
+            var cost = textBox.Text;
+
+            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(theory) || string.IsNullOrWhiteSpace(cost))
             {
                 MessageBox.Show("Одно из полей не заполнено");
                 return;
             }
 
-            if (!int.TryParse(TxbCost.Text, out int cost))
+            if (!int.TryParse(cost, out int needCost))
             {
                 MessageBox.Show("Введите корректное значение в стоимость");
                 return;
             }
 
-            var part = new Part(TxbName.Text, TxbTheory.Text, new VictorineData(_questionsAnswers, cost));
+            var part = new Part(name, theory, new VictorineData(_questionsAnswers, needCost));
+            var spec = (string)CmbBoxSpeciality.SelectedItem;
 
+            CompanyProfile.Data.EducationParts[spec].Add(part);
             FrameNav.FrameNavigation.GoBack();
             FrameNav.FrameNavigation.GoBack();
         }

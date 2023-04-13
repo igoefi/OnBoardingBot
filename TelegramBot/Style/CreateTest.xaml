@@ -62,7 +62,8 @@
                                      VerticalAlignment="Center"
                                      Padding="5"
                                      Foreground="#F4EEE0"
-                                     x:Name="TB"/>
+                                     x:Name="TB"
+                                     TextWrapping="WrapWithOverflow"/>
 
                             <TextBlock IsHitTestVisible="False"
                                        Text="Теория"

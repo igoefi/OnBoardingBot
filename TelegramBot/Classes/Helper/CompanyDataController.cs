@@ -35,7 +35,7 @@ namespace TelegramBot.Classes.Helper
             educParts.TryGetValue(speciality, out List<Part> partsList);
             if (partsList == null) return null;
 
-            if (partsList.Count < part) return null;
+            if (partsList.Count <= part) return null;
             return partsList[part];
         }
 
