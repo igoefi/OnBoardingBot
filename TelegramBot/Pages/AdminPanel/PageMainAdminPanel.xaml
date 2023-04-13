@@ -171,27 +171,53 @@
                     </Button.Template>
                 </Button>
             </StackPanel>
-            <Button Click="BtnClickCreateDirection"
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                <Button Click="BtnClickCreateDirection"
                     BorderBrush="Transparent"
                     Width="200"
                     Height="30"
                     Margin="0,5,0,0">
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Grid>
-                            <Rectangle RadiusX="8"
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Rectangle RadiusX="8"
                                            RadiusY="5"
                                            Fill="#4F4557">
-                            </Rectangle>
-                            <TextBlock Text="Создание направления"
+                                </Rectangle>
+                                <TextBlock Text="Создание направления"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
                                        FontSize="15"
                                            Foreground="#F4EEE0"/>
-                        </Grid>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Click="BtnClickGetInfoUser"
+                    BorderBrush="Transparent"
+                    Width="200"
+                    Height="30"
+                    Margin="5,5,0,0">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Rectangle RadiusX="8"
+                                           RadiusY="5"
+                                           Fill="#4F4557">
+                                </Rectangle>
+                                <TextBlock Text="Инфо о пользователе"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                       FontSize="15"
+                                           Foreground="#F4EEE0"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 L:\TelegramBot\OnBoardingBot\TelegramBot\App.xaml
-22566270343
+23936810942
 
-31-787700274
+32-1914767369
 25-863079837
-MainWindow.xaml;Pages\AdminPanel\CreateTest.xaml;Pages\AdminPanel\CreateUser.xaml;Pages\AdminPanel\KeyWords.xaml;Pages\AdminPanel\ListEmployee.xaml;Pages\AdminPanel\PageAboutComp.xaml;Pages\AdminPanel\PageBotSettings.xaml;Pages\AdminPanel\PageChangeTest.xaml;Pages\AdminPanel\PageCreateDirection.xaml;Pages\AdminPanel\PageCreateTest.xaml;Pages\AdminPanel\PageMainAdminPanel.xaml;Pages\StartPanel.xaml;Style\ComboBoxStyle.xaml;Style\CreateDirection.xaml;Style\CreateTest.xaml;Style\CreateUser.xaml;Style\KeyWords.xaml;Style\StartPanel.xaml;Style\ReferalCode.xaml;Style\Token.xaml;Style\Password.xaml;Style\LoginBox.xaml;
+MainWindow.xaml;Pages\AdminPanel\CreateTest.xaml;Pages\AdminPanel\CreateUser.xaml;Pages\AdminPanel\KeyWords.xaml;Pages\AdminPanel\ListEmployee.xaml;Pages\AdminPanel\PageAboutComp.xaml;Pages\AdminPanel\PageBotSettings.xaml;Pages\AdminPanel\PageChangeTest.xaml;Pages\AdminPanel\PageCreateDirection.xaml;Pages\AdminPanel\PageCreateTest.xaml;Pages\AdminPanel\PageMainAdminPanel.xaml;Pages\AdminPanel\PageUserInfo.xaml;Pages\StartPanel.xaml;Style\ComboBoxStyle.xaml;Style\CreateDirection.xaml;Style\CreateTest.xaml;Style\CreateUser.xaml;Style\KeyWords.xaml;Style\StartPanel.xaml;Style\ReferalCode.xaml;Style\Token.xaml;Style\Password.xaml;Style\LoginBox.xaml;
 
 False
 

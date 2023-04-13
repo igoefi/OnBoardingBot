@@ -167,6 +167,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\AdminPanel\PageUserInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\StartPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -242,6 +246,9 @@
     </Compile>
     <Compile Include="Pages\AdminPanel\PageMainAdminPanel.xaml.cs">
       <DependentUpon>PageMainAdminPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminPanel\PageUserInfo.xaml.cs">
+      <DependentUpon>PageUserInfo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\StartPanel.xaml.cs">
       <DependentUpon>StartPanel.xaml</DependentUpon>

@@ -233,3 +233,5 @@ L:\TelegramBot\OnBoardingBot\TelegramBot\obj\Debug\Pages\AdminPanel\PageChangeTe
 L:\TelegramBot\OnBoardingBot\TelegramBot\obj\Debug\Pages\AdminPanel\PageCreateTest.baml
 L:\TelegramBot\OnBoardingBot\TelegramBot\obj\Debug\Pages\AdminPanel\PageCreateDirection.baml
 L:\TelegramBot\OnBoardingBot\TelegramBot\obj\Debug\Style\CreateDirection.baml
+L:\TelegramBot\OnBoardingBot\TelegramBot\obj\Debug\Pages\AdminPanel\PageUserInfo.g.cs
+L:\TelegramBot\OnBoardingBot\TelegramBot\obj\Debug\Pages\AdminPanel\PageUserInfo.baml
